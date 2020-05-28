@@ -53,7 +53,8 @@ namespace MantisBruna_automacao.Pages
 
         public void MensagemDeErro()
         {
-            Assert.AreEqual(msgErroLogin,"Sua conta pode estar desativada ou bloqueada ou o nome de usuário e a senha que você digitou não estão corretos.");
+            string msg = "Sua conta pode estar desativada ou bloqueada ou o nome de usuário e a senha que você digitou não estão corretos.";
+            Assert.AreEqual(msgErroLogin,msg);
         }
 
         public void TelaInicial()

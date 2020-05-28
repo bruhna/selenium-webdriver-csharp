@@ -49,6 +49,7 @@ namespace MantisBruna_Automacao.Pages
 
         IWebElement btnExpandir => driver.FindElement(By.XPath("//*[@id='filter-toggle']/i"));
         IWebElement btnExibir => driver.FindElement(By.Id("per_page_filter"));
+        
         IWebElement txtExibir => driver.FindElement(By.Id("per_page_filter_target"));
 
 

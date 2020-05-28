@@ -42,7 +42,7 @@ namespace MantisBruna_Automacao.StepsDefinitions
             _criarTarefaPage.PreencherCategoria(dictionary["categoria"]);
             _criarTarefaPage.PreencherFrequncia(dictionary["frequencia"]);
             _criarTarefaPage.PreencherGravidade(dictionary["gravidade"]);
-            _criarTarefaPage.PreencherPrioridade(dictionary["prioridade"]);
+ //           _criarTarefaPage.PreencherPrioridade(dictionary["prioridade"]);
             _criarTarefaPage.PreencherAtribuir(dictionary["atribuir"]);
             _criarTarefaPage.PreencherResumo(dictionary["resumo"]);
             _criarTarefaPage.PreencherDescricao(dictionary["descricao"]);
@@ -86,7 +86,7 @@ namespace MantisBruna_Automacao.StepsDefinitions
             _criarTarefaPage = new CriarTarefaPage();
             _criarTarefaPage.PreencherFrequncia(dictionary["frequencia"]);
             _criarTarefaPage.PreencherGravidade(dictionary["gravidade"]);
-            _criarTarefaPage.PreencherPrioridade(dictionary["prioridade"]);
+          //  _criarTarefaPage.PreencherPrioridade(dictionary["prioridade"]);
             _criarTarefaPage.PreencherAtribuir(dictionary["atribuir"]);
             _criarTarefaPage.PreencherPassosReproduzir(dictionary["passos"]);
             //_criarTarefaPage.PreencherPassosReproduzir("Teste campos não obrigatórios");

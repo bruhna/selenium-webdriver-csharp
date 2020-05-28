@@ -112,9 +112,6 @@ this.ScenarioInitialize(scenarioInfo);
 #line 11
  testRunner.And("preencho o campo senha errado", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 12
- testRunner.Then("deve apresentar mensagem de erro", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
             }
             this.ScenarioCleanup();
         }
