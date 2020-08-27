@@ -12,43 +12,41 @@ namespace MantisBruna_automacao.Pages
     public class LoginPage : PageBase
 
     {
-        #region Mapeamento dos campos
-        IWebElement txtLogin => driver.FindElement(By.Name("username"));
-        IWebElement btnEntrar => driver.FindElement(By.XPath("//input[@value='Entrar']"));
+        #region Mapeamento 
 
-        IWebElement msgErroLogin => driver.FindElement(By.XPath("//div[@id='main-container']/div/div/div/div/div[4]"));
-       
+        By usernameField = By.Name("username");
+        By passwordField = By.Name("password");
 
-        IWebElement txtSenha => driver.FindElement(By.Name("password"));
+        By btnEntrar = By.XPath("//input[@value='Entrar']");
+        By msgErroLogin = By.XPath("//div[@id='main-container']/div/div/div/div/div[4]");
+        By campoTela = By.Id("breadcrumbs");
 
-        IWebElement campoTela => driver.FindElement(By.Id("breadcrumbs"));
+        By btnAvancado = By.Id("details-button");
+        By linkAvancado = By.Id("proceed-link");
 
-        IWebElement btnAvancado => driver.FindElement(By.Id("details-button"));
-        IWebElement linkAvancado => driver.FindElement(By.Id("proceed-link"));
-
-        //IWebElement campoTela2 => driver.FindElement(By.CssSelector("href=' / my_view_page.php'"));
         #endregion
 
-        #region Ações do Login
+        #region Actions
 
-        public void PreencherErro()
+        public void ClicarErro()
         {
-            btnAvancado.Click();
-            linkAvancado.Click();
+            Click(btnAvancado);
+            Click(linkAvancado);
         }
 
-        public void PreencherLogin(string login)
+        public void PreencherUsuario(string usuario)
         {
-            txtLogin.SendKeys(login);
+            SendKeys(usernameField, usuario);
         }
+        
         public void PreencherSenha(string senha)
         {
-            txtSenha.SendKeys(senha);
+            SendKeys(passwordField, senha);
         }
 
-        public void ClickEntrar()
+        public void ClicarEmLogin()
         {
-            btnEntrar.Click();
+            Click(btnEntrar);
         }
 
         public void MensagemDeErro()
@@ -59,7 +57,7 @@ namespace MantisBruna_automacao.Pages
 
         public void TelaInicial()
         {
-            campoTela.Click();
+            Click(campoTela);
         }
         #endregion
     }

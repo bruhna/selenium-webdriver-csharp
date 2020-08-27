@@ -19,7 +19,7 @@ namespace MantisBruna_Automacao.StepsDefinitions
         public void GivenQueEuAcessoOLogin()
         {
             _verTarefaPage = new VerTarefaPage();
-            _verTarefaPage.PreencherErro();
+            _verTarefaPage.ClicarErro();
             _verTarefaPage.PreencherNomeLogin(ConfigurationManager.AppSettings["NOMELOGIN"]);
             _verTarefaPage.PreencherSenhaLogin(ConfigurationManager.AppSettings["SENHALOGIN"]);
         }
@@ -86,7 +86,7 @@ namespace MantisBruna_Automacao.StepsDefinitions
         public void WhenSelecionoAOpcaoDeResolver()
         {
             _verTarefaPage = new VerTarefaPage();
-            _verTarefaPage.SelecionarOpcao();
+            _verTarefaPage.SelecionarOpcao(" ");
 
         }
 

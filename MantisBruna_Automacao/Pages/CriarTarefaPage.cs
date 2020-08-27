@@ -9,123 +9,118 @@ namespace MantisBruna_automacao.Pages
     public class CriarTarefaPage : PageBase
     {
 
-        #region Mapeamento dos elementos do Login
-        IWebElement nomeLogin => driver.FindElement(By.Id("username"));
-        IWebElement senhaLogin => driver.FindElement(By.Id("password"));
+        #region Mapeamento Login
+        By usernameField = By.Name("username");
+        By passwordField = By.Name("password");
 
-        IWebElement btnAvancado => driver.FindElement(By.Id("details-button"));
-        IWebElement linkAvancado => driver.FindElement(By.Id("proceed-link"));
+        By btnAvancado = By.Id("details-button");
+        By linkAvancado = By.Id("proceed-link");
         #endregion
 
-        #region Mapeamento dos elementos Tela Criar Tarefa
-        IWebElement menuCriarTarefa => driver.FindElement(By.XPath("//div[@id='sidebar']/ul/li[3]/a/i"));
-        // IWebElement menuCriarTarefa => driver.FindElement(By.CssSelector("href='/bug_report_page.php'"));
-        IWebElement cbxCategoria => driver.FindElement(By.Id("category_id"));
-        IWebElement cbxFrequncia => driver.FindElement(By.Id("reproducibility"));
-        IWebElement cbxGravidade => driver.FindElement(By.Id("severity"));
-        IWebElement cbxPrioridade => driver.FindElement(By.Id("priority"));
-        IWebElement cbxAtribuir => driver.FindElement(By.Id("handler_id"));
-        IWebElement txtResumo => driver.FindElement(By.Id("summary"));
-        IWebElement txtDescricao => driver.FindElement(By.Id("description"));
-        IWebElement txtReproduzir => driver.FindElement(By.Id("steps_to_reproduce"));
-        IWebElement txtAdicionais => driver.FindElement(By.Id("additional_info"));
-
-        IWebElement btnCriarNovaTarefa => driver.FindElement(By.XPath("//*[@id='report_bug_form']/div/div[2]/div[2]/input"));
-        IWebElement msgOperacao => driver.FindElement(By.XPath("//div[@id='main-container']/div[2]/div[2]/div/div/div/div[2]/p"));
+        #region Mapeamento Criar Tarefa
+        By menuCriarTarefa = By.XPath("//div[@id='sidebar']/ul/li[3]/a/i");
+        By cbxCategoria = By.Id("category_id");
+        By cbxFrequncia = By.Id("reproducibility");
+        By cbxGravidade = By.Id("severity");
+        By cbxPrioridade = By.Id("priority");
+        By cbxAtribuir = By.Id("handler_id");
+        By txtResumo = By.Id("summary");
+        By txtDescricao = By.Id("description");
+        By txtReproduzir = By.Id("steps_to_reproduce");
+        By txtAdicionais = By.Id("additional_info");
+        By btnCriarNovaTarefa = By.XPath("//*[@id='report_bug_form']/div/div[2]/div[2]/input");
+        By msgOperacao = By.XPath("//div[@id='main-container']/div[2]/div[2]/div/div/div/div[2]/p");
 
         #endregion
 
 
-        #region Ações Login
+        #region Actions Login
 
-        public void PreencherErro()
+        public void ClicarErro()
         {
-            btnAvancado.Click();
-            linkAvancado.Click();
+            Click(btnAvancado);
+            Click(linkAvancado);
         }
 
         public void PreencherNomeLogin(string nome)
         {
-            nomeLogin.Click();
-            nomeLogin.SendKeys(nome + Keys.Enter);   
+            Click(usernameField);
+            SendKeys(usernameField, nome + Keys.Enter);   
         }
         public void PreencherSenhaLogin(string senha)
         {
-            senhaLogin.Click();
-            senhaLogin.SendKeys(senha + Keys.Enter);
+            Click(passwordField);
+            SendKeys(passwordField, senha + Keys.Enter);
 
         }
         #endregion
 
-        #region Ações Criar nova tarefa
+        #region Actions Criar Tarefa
         public void AcessarMenuCriarTarefa()
         {
-            menuCriarTarefa.Click();
+            Click(menuCriarTarefa);
         }
         public void PreencherCategoria(string v)
         {
-            cbxCategoria.Click();
-            SelectElement categoriaSelecionado = new SelectElement(cbxCategoria);
+            Click(cbxCategoria);
+           ComboBoxSelectByVisibleText (cbxCategoria, v);
             //categoriaSelecionado.SelectByIndex(1);
-            cbxCategoria.Click();
-        }
-
-        internal void PreencherCategoria()
-        {
-            throw new NotImplementedException();
+            Click(cbxCategoria);
         }
 
         public void PreencherFrequncia(string v)
         {
-            cbxFrequncia.Click();
-            SelectElement frequenciaSelecionado = new SelectElement(cbxFrequncia);
-            frequenciaSelecionado.SelectByIndex(1);
-            cbxFrequncia.Click();
+            Click(cbxFrequncia);
+            ComboBoxSelectByVisibleText(cbxFrequncia, v);
+            //SelectElement frequenciaSelecionado = new SelectElement(cbxFrequncia);
+            //frequenciaSelecionado.SelectByIndex(1);
+            Click(cbxFrequncia);
         }
         public void PreencherGravidade(string v)
         {
-            cbxGravidade.Click();
-            SelectElement gravidadeSelecionado = new SelectElement(cbxGravidade);
-            gravidadeSelecionado.SelectByIndex(6);
-            cbxGravidade.Click();
+            Click(cbxGravidade);
+            ComboBoxSelectByVisibleText(cbxGravidade, v);
+            //SelectElement gravidadeSelecionado = new SelectElement(cbxGravidade);
+            //gravidadeSelecionado.SelectByIndex(6);
+            Click(cbxGravidade);
         }
         public void PreencherPrioridade(string v)
         {
-            cbxPrioridade.Click();
-            SelectElement prioridadeSelecionado = new SelectElement(cbxPrioridade);
-            prioridadeSelecionado.SelectByIndex(3);
-            cbxPrioridade.Click();
+            Click(cbxPrioridade);
+            ComboBoxSelectByVisibleText(cbxPrioridade, v);
+            // SelectElement prioridadeSelecionado = new SelectElement(cbxPrioridade);
+            Click(cbxPrioridade);
         }
         public void PreencherAtribuir(string v)
         {
-            cbxAtribuir.Click();
-            SelectElement atribuirSelecionado = new SelectElement(cbxAtribuir);
-            atribuirSelecionado.SelectByIndex(2);
-            cbxAtribuir.Click();
+            Click(cbxAtribuir);
+            ComboBoxSelectByVisibleText(cbxAtribuir, v);
+            //SelectElement atribuirSelecionado = new SelectElement(cbxAtribuir);
+            Click(cbxAtribuir);
         }
         public void PreencherResumo(string resumo)
         {
-            txtResumo.Click();
-            txtResumo.SendKeys(resumo);
+            Click(txtResumo);
+            SendKeys(txtResumo, resumo);
         }
         public void PreencherDescricao(string descricao)    
         {
-            txtDescricao.Click();
-            txtDescricao.SendKeys(descricao);
+            Click(txtDescricao);
+            SendKeys(txtDescricao, descricao);
         }
         public void PreencherPassosReproduzir(string reproduzir)
         {
-            txtReproduzir.Click();
-            txtReproduzir.SendKeys(reproduzir);
+            Click(txtReproduzir);
+           SendKeys(txtReproduzir,reproduzir);
         }
         public void PreencherAdicionais(string adicionais)
         {
-            txtAdicionais.Click();
-            txtAdicionais.SendKeys(adicionais);
+            Click(txtAdicionais);
+            SendKeys(txtAdicionais, adicionais);
         }
         public void SalvarTarefa()
         {
-            btnCriarNovaTarefa.Click();
+            Click(btnCriarNovaTarefa);
         }
        
         public void ValidarMensagem()

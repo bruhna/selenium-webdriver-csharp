@@ -19,7 +19,7 @@ namespace MantisBruna_Automacao.StepsDefinitions
         public void GivenQueEuAcessoLogin()
         {
             _criarTarefaPage = new CriarTarefaPage();
-            _criarTarefaPage.PreencherErro();
+            _criarTarefaPage.ClicarErro();
             _criarTarefaPage.PreencherNomeLogin(ConfigurationManager.AppSettings["NOMELOGIN"]);
             _criarTarefaPage.PreencherSenhaLogin(ConfigurationManager.AppSettings["SENHALOGIN"]); 
         }

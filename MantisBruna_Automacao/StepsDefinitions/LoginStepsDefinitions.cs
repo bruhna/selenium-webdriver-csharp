@@ -16,7 +16,7 @@ namespace MantisBruna_Automacao.StepsDefinitions
         public void GivenQueEuPreenchoOCampoLogin()
         {
             _loginPage = new LoginPage();
-            _loginPage.PreencherLogin(ConfigurationManager.AppSettings["NOMELOGIN"]);
+            _loginPage.PreencherUsuario(ConfigurationManager.AppSettings["NOMELOGIN"]);
 
         }
 
@@ -24,7 +24,7 @@ namespace MantisBruna_Automacao.StepsDefinitions
         public void GivenAcionoAOpcaoParaEntrar()
         {
             _loginPage = new LoginPage();
-            _loginPage.ClickEntrar();
+            _loginPage.ClicarEmLogin();
         }
 
 
@@ -33,7 +33,7 @@ namespace MantisBruna_Automacao.StepsDefinitions
         {
             _loginPage = new LoginPage();
             _loginPage.PreencherSenha("teste123");
-            _loginPage.ClickEntrar();
+            _loginPage.ClicarEmLogin();
         }
 
         [Then(@"deve apresentar mensagem de erro")]
@@ -48,7 +48,7 @@ namespace MantisBruna_Automacao.StepsDefinitions
         {
 
             _loginPage = new LoginPage();
-            _loginPage.PreencherErro();
+            _loginPage.ClicarErro();
 
         }
 
@@ -56,7 +56,7 @@ namespace MantisBruna_Automacao.StepsDefinitions
         public void WhenPeenchoOCampoLoginErrado()
         {
             _loginPage = new LoginPage();
-            _loginPage.PreencherLogin("TesteBruna");
+            _loginPage.PreencherUsuario("TesteBruna");
         }
 
         [When(@"preencho o campo senha")]
@@ -78,7 +78,7 @@ namespace MantisBruna_Automacao.StepsDefinitions
         public void WhenAcionoAOpcaoParaEntrar()
         {
             _loginPage = new LoginPage();
-            _loginPage.ClickEntrar();
+            _loginPage.ClicarEmLogin();
         }
 
         [Then(@"deve apresentar a tela inicial do mantis")]
